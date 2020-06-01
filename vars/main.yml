@@ -15,6 +15,13 @@ _scalelite:
     - libncurses5-dev
     - libffi-dev
     - libgdbm-dev
+    - libpq-dev
+    - libxml2
+    - libxslt1-dev
+    - ruby-bundler
+    - ruby-json
+    - tini
+    - tzdata
   package_state: present
 
 # some variables for versioncheck
