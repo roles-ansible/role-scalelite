@@ -1,0 +1,5 @@
+---
+- name: install required packages
+  packages:
+    name: "{{ scalelite.required_packages }}"
+    state: "{{ scalelite.package_state }}"

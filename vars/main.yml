@@ -1,4 +1,22 @@
 ---
+# default scalelite config
+_scalelite:
+  required_packages:
+    - git
+    - curl
+    - libssl-dev
+    - libreadline-dev
+    - zlib1g-dev
+    - autoconf
+    - bison
+    - build-essential
+    - libyaml-dev
+    - libreadline-dev
+    - libncurses5-dev
+    - libffi-dev
+    - libgdbm-dev
+  package_state: present
+
 # some variables for versioncheck
 playbook_version_number: 32 #should be integer
 playbook_version_path: 'role-scalelight_roles-ansible_github.com.version' # unique string

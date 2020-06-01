@@ -1,5 +1,24 @@
 ---
+scalelite:
+  required_packages:
+    - git
+    - curl
+    - libssl-dev
+    - libreadline-dev
+    - zlib1g-dev
+    - autoconf
+    - bison
+    - build-essential
+    - libyaml-dev
+    - libreadline-dev
+    - libncurses5-dev
+    - libffi-dev
+    - libgdbm-dev
+  package_state: present
+
+
 # simple version check for this playbook
 # true is highly recomended
 submodules_versioncheck: false
+
 
