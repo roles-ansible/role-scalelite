@@ -2,6 +2,7 @@
 # default scalelite config
 _scalelite:
   required_packages:
+  required_packages:
     - git
     - curl
     - libssl-dev
@@ -22,8 +23,12 @@ _scalelite:
     - ruby-json
     - tini
     - tzdata
+    - build-essential
+    - libxml2-dev
+    - libxslt-dev
+    - pkgconf
   package_state: present
 
 # some variables for versioncheck
-playbook_version_number: 32 #should be integer
+playbook_version_number: 33 #should be integer
 playbook_version_path: 'role-scalelight_roles-ansible_github.com.version' # unique string

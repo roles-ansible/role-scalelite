@@ -1,0 +1,14 @@
+---
+- name: Ensure group scalelite exists
+  become: true
+  group:
+    name: scalelite
+    state: present
+
+- name: add scalelite user
+  become: true
+  user:
+    name: scalelite
+    group: scalelite
+    system: yes
+    state: present

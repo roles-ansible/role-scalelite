@@ -7,3 +7,7 @@
   when: submodules_versioncheck|bool
 
 - include_tasks: packages.yml
+
+- include_tasks: user.yml
+
+- include_tasks: ruby.yml

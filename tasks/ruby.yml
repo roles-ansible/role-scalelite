@@ -1,0 +1,9 @@
+---
+- name: create /etc/gemrc
+  become: true
+  copy:
+    src: files/gemrc
+    dest: /etc/gemrc
+    owner: root
+    group: root
+    mode: 0744
