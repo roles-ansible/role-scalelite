@@ -26,10 +26,11 @@ scalelite:
     - libxslt-dev
     - pkgconf
   package_state: present
-
+  git_repo: https://github.com/blindsidenetworks/scalelite.git
+  git_branch: master
+  homepath: /home/scalelite
 
 # simple version check for this playbook
 # true is highly recomended
 submodules_versioncheck: false
-
 

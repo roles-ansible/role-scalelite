@@ -28,7 +28,10 @@ _scalelite:
     - libxslt-dev
     - pkgconf
   package_state: present
+  git_repo: https://github.com/blindsidenetworks/scalelite.git
+  git_branch: master
+  homepath: /home/scalelite
 
 # some variables for versioncheck
-playbook_version_number: 33 #should be integer
+playbook_version_number: 34 #should be integer
 playbook_version_path: 'role-scalelight_roles-ansible_github.com.version' # unique string

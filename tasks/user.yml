@@ -10,5 +10,5 @@
   user:
     name: scalelite
     group: scalelite
-    system: yes
+    home: "{{ scalelite.homepath }}"
     state: present
