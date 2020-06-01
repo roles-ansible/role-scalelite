@@ -1,3 +1,4 @@
+![Ansible Lint check](https://github.com/roles-ansible/role-scalelite/workflows/Ansible%20Lint%20check/badge.svg)
 # role-scalelite
 Ansible role to deploy scalelite without docker
 
