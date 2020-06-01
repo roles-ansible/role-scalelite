@@ -1,0 +1,4 @@
+---
+# some variables for versioncheck
+playbook_version_number: 32 #should be integer
+playbook_version_path: 'role-scalelight_roles-ansible_github.com.version' # unique string
