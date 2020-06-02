@@ -2,7 +2,6 @@
 # default scalelite config
 _scalelite:
   required_packages:
-  required_packages:
     - git
     - curl
     - libssl-dev

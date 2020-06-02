@@ -15,6 +15,6 @@
 - name: clone scalelite git
   become: true
   git:
-    repo: "{{ scalelit.git_repo }}"
-    version: "{{ scalelit.git_branch }}"
+    repo: "{{ scalelite.git_repo }}"
+    version: "{{ scalelite.git_branch }}"
     dest: "{{ scalelite.homepath }}/scalelite-git"
