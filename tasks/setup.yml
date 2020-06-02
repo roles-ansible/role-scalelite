@@ -1,0 +1,29 @@
+---
+
+- name: Ensure deps are installed
+  package:
+    name:
+     - python3-pip
+     - python3-setuptools
+     - git
+
+- name: Ensure docker-compose python deps are installed
+  pip:
+    name:
+      - docker-compose
+
+- name: Ensure docker-compose project is copied
+  git:
+    repo: https://github.com/jfederico/scalelite-run.git
+    dest: /root/scalelite
+
+- name: Ensure .env file deployed
+  template:
+    src: .env.j2
+    dest: /root/scalelite/.env
+  register: _env_deployed
+
+- name: Ensure Scalelite is running
+  docker_compose:
+    project_src: /root/scalelite
+    pull: true

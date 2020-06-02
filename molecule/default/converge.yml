@@ -1,0 +1,12 @@
+---
+- name: Converge
+  hosts: all
+  vars:
+    scalelite_hostname: "scalelite.flipdot.dev"  #  "{{ lookup('dig', ansible_default_ipv4.address + '/PTR')[:-1] }}"
+    ansible_python_interpreter: /usr/bin/python3
+    scalelite_secret_key: "asldkjasd87987a9s8"
+    scalelite_secret_loadbalancer: "asdasd98a0s9d8a0s9d8"
+  tasks:
+    - name: "Include scalelite"
+      include_role:
+        name: "role-scalelite"

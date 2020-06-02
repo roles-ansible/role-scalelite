@@ -1,0 +1,23 @@
+---
+
+#- name: Get current bbb nodes
+#  command: docker exec -i scalelite-api bundle exec rake servers
+#  register: _current_bbb_nodes
+
+#- debug: var=_current_bbb_nodes
+
+
+
+#- debug: var=item
+#  with_items: "{{ groups['_label_bigbluebutton_'] }}"
+
+
+#- name: Add bbb nodes
+#  command: docker exec -i scalelite-api bundle exec rake servers:add[https://{{ item }}/bigbluebutton/api/,{{ bbb_secret }}]
+#  when: item not in _current_bbb_nodes
+#  with_inventory_hostnames:
+#    - _label_bigbluebutton_
+#  register:
+#
+#- name: Enable bbb nodes
+#  command: docker exec -i scalelite-api bundle exec rake servers:add[https://{{ item }}/bigbluebutton/api/,{{ bbb_secret }}]

@@ -1,0 +1,19 @@
+---
+dependency:
+  name: galaxy
+  options:
+    role-file: requirements.yml
+driver:
+  name: hetznercloud
+platforms:
+  - name: "scalelite-molecule"
+    server_type: cpx11
+    image: debian-10
+provisioner:
+  name: ansible
+  playbooks:
+    prepare: prepare.yml
+lint: |
+  set -e
+  yamllint .
+  ansible-lint -x 204,306 .

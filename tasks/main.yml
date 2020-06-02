@@ -2,3 +2,6 @@
 - include_tasks: versioncheck.yml
   when: submodules_versioncheck|bool
 
+- import_tasks: setup.yml
+
+- import_tasks: cluster.yml
