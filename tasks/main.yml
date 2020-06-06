@@ -10,11 +10,11 @@
 
 - include_tasks: user.yml
 
-- include_tasks: ruby.yml
-
 - name: clone scalelite git
   become: true
   git:
     repo: "{{ scalelite.git_repo }}"
     version: "{{ scalelite.git_branch }}"
     dest: "{{ scalelite.homepath }}/scalelite-git"
+
+- include_tasks: ruby.yml

@@ -31,6 +31,7 @@ scalelite:
   git_branch: master
   homepath: /home/scalelite
   ruby_version: 2.6.5
+  bundler_version: 2.1.4
   ruby_download_url: http://cache.ruby-lang.org/pub/ruby/2.6/ruby-2.6.5.tar.gz
   ruby_install_from_source: true
 

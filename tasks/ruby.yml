@@ -1,5 +1,6 @@
 ---
 - name: create /etc/gemrc
+# not sure if this is needed
   become: true
   copy:
     src: files/gemrc
@@ -7,3 +8,15 @@
     owner: root
     group: root
     mode: 0744
+
+- name: install gem version "scalelite.bundler_version"
+  gem:
+    name: bundler
+    version: "{{ scalelite.bundler_version }}"
+    state: present
+
+- name: install requirements from scalelite Gemfile
+  bundler:
+    state: present
+    exclude_groups: development:test
+    chdir: "{{ scalelite.homepath }}/scalelite-git"
