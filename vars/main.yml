@@ -40,7 +40,11 @@ _scalelite:
   psql_user: scalelite
   psql_pwd: changeMe
   psql_db: scalelite
+  psql_server: localhost
+  rails_env: production
+  redis_server: '127.0.0.1'
+  no_log: true
 
 # some variables for basic versioncheck
-playbook_version_number: 45 # should be integer
+playbook_version_number: 46 # should be integer
 playbook_version_path: 'role-scalelight_roles-ansible_github.com.version' # unique string

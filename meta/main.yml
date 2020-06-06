@@ -21,22 +21,4 @@ galaxy_info:
     - bbb
     - bigbluebutton
 
-dependencies:
-  - role: geerlingguy.ruby
-    become: yes
-    vars:
-      ruby_version: "{{ scalelite.ruby_version }}"
-      ruby_install_from_source: "{{ scalelite.ruby_install_from_source }}"
-      ruby_download_url: "{{ scalelite.ruby_download_url }}"
-  - role: geerlingguy.postgresql
-    become: true
-    vars:
-      postgresql_databases:
-        - name: "{{ scalelite.psql_db }}"
-          owner: "{{ scalelite.psql_user }}"
-          state: present
-      postgresql_users:
-        - name: "{{ scalelite.psql_user }}"
-          password: "{{ scalelite.psql_pwd }}"
-          state: present
-
+dependencies: []

@@ -4,3 +4,21 @@
     name: "{{ scalelite.redis_pkgs }}"
     state: "{{ scalelite.package_state }}"
   become: true
+
+- name: 'run bin rake db:setup'
+  shell: |
+    export RAILS_ENV='{{ scalelite.rails_env }}'
+    export RAILS_LOG_TO_STDOUT='1'
+    export DATABASE_URL='postgres://{{ scalelite.psql_user }}:{{ scalelite.psql_pwd }}@{{ scalelite.psql_server }}'
+    export REDIS_URL='redis://{{ scalelite.redis_server }}'
+    export DISABLE_DATABASE_ENVIRONMENT_CHECK=1
+
+    ruby --version
+    bundler --version
+
+    bin/rake db:setup
+  args:
+    executable: /bin/bash
+    chdir: "{{ scalelite.homepath }}/scalelite-git"
+  changed_when: False
+  no_log: "{{ scalelite.no_log }}"

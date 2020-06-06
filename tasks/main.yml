@@ -6,6 +6,28 @@
 - include_tasks: versioncheck.yml
   when: submodules_versioncheck|bool
 
+- include_role:
+    name: geerlingguy.ruby
+  vars:
+    ruby_version: "{{ scalelite.ruby_version }}"
+    ruby_install_from_source: "{{ scalelite.ruby_install_from_source }}"
+    ruby_download_url: "{{ scalelite.ruby_download_url }}"
+
+- include_role:
+    name: geerlingguy.postgresql
+  vars:
+    postgresql_databases:
+      - name: "{{ scalelite.psql_db }}"
+        owner: "{{ scalelite.psql_user }}"
+        encoding: 'unicode'
+    postgresql_users:
+      - name: "{{ scalelite.psql_user }}"
+        password: "{{ scalelite.psql_pwd }}"
+        priv: "ALL"
+        db_owner: true
+        db: "{{ scalelite.psql_db }}"
+
+
 - include_tasks: packages.yml
 
 - include_tasks: user.yml
