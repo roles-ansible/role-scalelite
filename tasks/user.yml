@@ -1,14 +1,15 @@
 ---
-- name: Ensure group scalelite exists
+- name: Ensure group "{{ scalelite.user }}" exists
   become: true
   group:
-    name: scalelite
+    name: "{{ scalelite.user }}"
     state: present
 
-- name: add scalelite user
+- name: add "{{ scalelite.user }}" user
   become: true
   user:
-    name: scalelite
-    group: scalelite
+    name: "{{ scalelite.user }}"
+    group: "{{ scalelite.user }}"
+    shell: /bin/bash
     home: "{{ scalelite.homepath }}"
     state: present
