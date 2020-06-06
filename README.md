@@ -23,8 +23,12 @@ https://github.com/blindsidenetworks/scalelite
 ------
  + geerlingguy.ruby
    * *we need this role to install the ruby version we want*
+ + geerlingguy.postgresql
+   * *we use this role to install and create a postgresql user and database.*
+   * It could be a good idea to make this dependency optional and allow the use of external postgres servers/clusters. **HELP-WANTED!**
+
 
 ```bash
-ansible-galaxy install geerlingguy.ruby
+ansible-galaxy install -r requirements.yml
 ```
 

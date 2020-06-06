@@ -2,3 +2,5 @@
 roles:
   - name: geerlingguy.ruby
     source: https://galaxy.ansible.com
+  - name: geerlingguy.postgresql
+    source: https://galaxy.ansible.com

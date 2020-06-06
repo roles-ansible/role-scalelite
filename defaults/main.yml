@@ -36,6 +36,10 @@ scalelite:
   ruby_install_from_source: true
   redis_pkgs:
     - redis-server
+  psql_user: scalelite
+  psql_pwd: changeMe
+  psql_db: scalelite
+
 
 # simple version check for this playbook
 # true is highly recomended
