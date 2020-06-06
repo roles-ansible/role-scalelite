@@ -18,3 +18,13 @@ https://github.com/blindsidenetworks/scalelite
  + We set up the scalelite user.
  + We set up some global ruby parameter like /etc/gemrc
  + rubyenv...
+
+ Dependency
+------
+ + geerlingguy.ruby
+   * *we need this role to install the ruby version we want*
+
+```bash
+ansible-galaxy install geerlingguy.ruby
+```
+

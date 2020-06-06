@@ -1,0 +1,30 @@
+---
+galaxy_info:
+  role_name: scalelite
+  author: L3D
+  description: >
+    BigBlueButton installation (following the documentation on
+    http://docs.bigbluebutton.org/install/install.html)
+
+  license: MIT
+
+  min_ansible_version: 2.6
+
+  platforms:
+    - name: debian
+      versions:
+        - buster
+        # - bionic
+
+  galaxy_tags:
+    - scalelite
+    - bbb
+    - bigbluebutton
+
+dependencies:
+  - role: geerlingguy.ruby
+    become: yes
+    vars:
+      ruby_version: "{{ scalelite.ruby_version }}"
+      ruby_install_from_source: "{{ scalelite.ruby_install_from_source }}"
+      ruby_download_url: "{{ scalelite.ruby_download_url }}"

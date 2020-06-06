@@ -1,6 +1,7 @@
 ---
 # default scalelite config
 _scalelite:
+  user: scalelite
   required_packages:
     - git
     - curl
@@ -30,7 +31,10 @@ _scalelite:
   git_repo: https://github.com/blindsidenetworks/scalelite.git
   git_branch: master
   homepath: /home/scalelite
+  ruby_version: 2.6.5
+  ruby_download_url: http://cache.ruby-lang.org/pub/ruby/2.6/ruby-2.6.5.tar.gz
+  ruby_install_from_source: true
 
-# some variables for versioncheck
-playbook_version_number: 34 #should be integer
+# some variables for basic versioncheck
+playbook_version_number: 42 # should be integer
 playbook_version_path: 'role-scalelight_roles-ansible_github.com.version' # unique string

@@ -1,0 +1,4 @@
+---
+roles:
+  - name: geerlingguy.ruby
+    source: https://galaxy.ansible.com
