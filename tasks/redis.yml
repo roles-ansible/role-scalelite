@@ -1,0 +1,6 @@
+---
+- name: install redis server
+  package:
+    name: "{{ scalelite.redis_pkgs }}"
+    state: "{{ scalelite.package_state }}"
+  become: true

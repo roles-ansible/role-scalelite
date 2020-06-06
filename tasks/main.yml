@@ -18,3 +18,5 @@
     dest: "{{ scalelite.homepath }}/scalelite-git"
 
 - include_tasks: ruby.yml
+
+- include_tasks: redis.yml

@@ -35,7 +35,9 @@ _scalelite:
   bundler_version: 2.1.4
   ruby_download_url: http://cache.ruby-lang.org/pub/ruby/2.6/ruby-2.6.5.tar.gz
   ruby_install_from_source: true
+  redis_pkgs:
+    - redis-server
 
 # some variables for basic versioncheck
-playbook_version_number: 42 # should be integer
+playbook_version_number: 43 # should be integer
 playbook_version_path: 'role-scalelight_roles-ansible_github.com.version' # unique string
