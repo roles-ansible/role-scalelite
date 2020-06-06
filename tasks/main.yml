@@ -12,6 +12,7 @@
 
 - name: clone scalelite git
   become: true
+  become_user: "{{ scalelite.user }}"
   git:
     repo: "{{ scalelite.git_repo }}"
     version: "{{ scalelite.git_branch }}"

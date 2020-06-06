@@ -42,5 +42,5 @@ _scalelite:
   psql_db: scalelite
 
 # some variables for basic versioncheck
-playbook_version_number: 44 # should be integer
+playbook_version_number: 45 # should be integer
 playbook_version_path: 'role-scalelight_roles-ansible_github.com.version' # unique string
