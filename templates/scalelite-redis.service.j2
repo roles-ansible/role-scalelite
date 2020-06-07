@@ -9,6 +9,7 @@ User={{ scalelite.user }}
 Group={{ scalelite.user }}
 WorkingDirectory={{ scalelite.homepath }}/scalelite-git
 ExecStart={{ scalelite.homepath }}/scalelite-git/bin/start-poller
+Environment=TINI_SUBREAPER="1"
 Restart=always
 
 [Install]

@@ -46,5 +46,5 @@ _scalelite:
   no_log: true
 
 # some variables for basic versioncheck
-playbook_version_number: 46 # should be integer
+playbook_version_number: 50 # should be integer
 playbook_version_path: 'role-scalelight_roles-ansible_github.com.version' # unique string
