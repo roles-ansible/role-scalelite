@@ -27,4 +27,12 @@
     exclude_groups: development:test
     chdir: "{{ scalelite.homepath }}/scalelite-git"
 
+- name: fix permission issue because we build some ruby stuff globally
+  become: true
+  file:
+    path: "{{ scalelite.homepath }}/scalelite-git"
+    owner: "{{ scalelite.user }}"
+    group: "{{ scalelite.user }}"
+    recurse: true
+
 # we do have a permission problem here. If you are a ruby expert, please help!
