@@ -11,17 +11,20 @@
 
 - name: install gem version "scalelite.bundler_version"
   become: true
-  become_user: "{{ scalelite.user }}"
+#  become_user: "{{ scalelite.user }}"
   gem:
     name: bundler
     version: "{{ scalelite.bundler_version }}"
-    user_install: true
+#    user_install: true
+    user_install: false
     state: present
 
 - name: install requirements from scalelite Gemfile
   become: true
-  become_user: "{{ scalelite.user }}"
+#  become_user: "{{ scalelite.user }}"
   bundler:
     state: present
     exclude_groups: development:test
     chdir: "{{ scalelite.homepath }}/scalelite-git"
+
+# we do have a permission problem here. If you are a ruby expert, please help!
