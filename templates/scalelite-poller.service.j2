@@ -1,5 +1,5 @@
 [Unit]
-Description=scalelite bin/start
+Description=scalelite bin/start-poller
 After=network.target
 
 [Service]
@@ -8,7 +8,7 @@ Type=simple
 User={{ scalelite.user }}
 Group={{ scalelite.user }}
 WorkingDirectory={{ scalelite.homepath }}/scalelite-git
-ExecStart={{ scalelite.homepath }}/scalelite-git/bin/start
+ExecStart={{ scalelite.homepath }}/scalelite-git/bin/start-poller
 Environment=TINI_SUBREAPER="1"
 Restart=always
 
