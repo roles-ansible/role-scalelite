@@ -1,6 +1,6 @@
 [![MIT License](https://raw.githubusercontent.com/roles-ansible/role-scalelite/master/.github/license.svg?sanitize=true)](https://github.com/roles-ansible/role_scalelite/blob/master/LICENSE)
-![Ansible Lint check](https://github.com/roles-ansible/role-scalelite/workflows/Ansible%20Lint%20check/badge.svg)
-![Ansible check debian:buster](https://github.com/roles-ansible/role-scalelite/workflows/Ansible%20check%20debian:buster/badge.svg)
+[![Ansible Lint check](https://github.com/roles-ansible/role-scalelite/workflows/Ansible%20Lint%20check/badge.svg)](https://github.com/roles-ansible/role-scalelite/actions?query=workflow%3A%22Ansible+Lint+check%22)
+[![Ansible check debian:buster](https://github.com/roles-ansible/role-scalelite/workflows/Ansible%20check%20debian:buster/badge.svg)](https://github.com/roles-ansible/role-scalelite/actions?query=workflow%3A%22Ansible+check+debian%3Abuster%22)
 
 # role-scalelite
 Ansible role to deploy scalelite without docker
