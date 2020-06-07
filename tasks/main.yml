@@ -23,9 +23,7 @@
     postgresql_users:
       - name: "{{ scalelite.psql_user }}"
         password: "{{ scalelite.psql_pwd }}"
-        priv: "ALL"
-        db_owner: true
-        db: "{{ scalelite.psql_db }}"
+    postgres_users_no_log: "{{ scalelite.no_log }}"
 
 
 - include_tasks: packages.yml
