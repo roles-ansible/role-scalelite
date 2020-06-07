@@ -10,12 +10,17 @@
     mode: 0744
 
 - name: install gem version "scalelite.bundler_version"
+  become: true
+  become_user: "{{ scalelite.user }}"
   gem:
     name: bundler
     version: "{{ scalelite.bundler_version }}"
+    user_install: true
     state: present
 
 - name: install requirements from scalelite Gemfile
+  become: true
+  become_user: "{{ scalelite.user }}"
   bundler:
     state: present
     exclude_groups: development:test
