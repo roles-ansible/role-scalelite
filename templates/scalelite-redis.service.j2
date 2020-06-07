@@ -1,0 +1,15 @@
+[Unit]
+Description=scalelite redis server
+After=network.target
+
+[Service]
+RestartSec=2s
+Type=simple
+User={{ scalelite.user }}
+Group={{ scalelite.user }}
+WorkingDirectory={{ scalelite.homepath }}/scalelite-git
+ExecStart={{ scalelite.homepath }}/scalelite-git/bin/start-poller
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

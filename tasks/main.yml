@@ -43,3 +43,5 @@
 - include_tasks: ruby.yml
 
 - include_tasks: redis.yml
+
+- include_tasks: systemd.yml

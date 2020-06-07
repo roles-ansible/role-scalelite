@@ -1,0 +1,7 @@
+---
+- name: systemctl restart scalelite-redis.service
+  become: true
+  systemd:
+    name: scalelite-redis.service
+    state: restarted
+    daemon_reload: true
