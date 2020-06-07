@@ -8,8 +8,9 @@ Ansible role to deploy scalelite without docker
 **IN DEVELOPMENT - NOT FOR PRODUCTION USE!**
 
 The scalelite repository can be found there:
-https://github.com/blindsidenetworks/scalelite
+https://github.com/blindsidenetworks/scalelite.git
 
+We recomend to use this role together with https://github.com/n0emis/ansible-role-bigbluebutton.git
 
  What is this role doing?
 --------------------
@@ -18,6 +19,19 @@ https://github.com/blindsidenetworks/scalelite
  + We set up the scalelite user.
  + We set up some global ruby parameter like /etc/gemrc
  + rubyenv...
+
+ Minimum Server Requirements
+-----------------------
+For the Scalelite Server, the minimum recommended server requirements are:
+
+ + 4 CPU Cores
+ + 8 GB Memory
+For **each** BigBlueButton server, the minimum requirements can be found [here](http://docs.bigbluebutton.org/2.2/install.html#minimum-server-requirements).
+
+For the external Postgres Database, the minimum recommended server requirements are:
+- 2 CPU Cores
+- 2 GB Memory
+- 20 GB Disk Space (should be good for tens of thousands of recordings)
 
  Dependency
 ------
