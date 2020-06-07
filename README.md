@@ -15,10 +15,14 @@ We recomend to use this role together with https://github.com/n0emis/ansible-rol
  What is this role doing?
 --------------------
  + First we do a simple version check, if this is enabled in the config. (disabled by default)
- + Next, we install the dependencies needed for scalelite.
- + We set up the scalelite user.
+ + We use some external roles for managing a specific ruby version, installing postgresql and adding a user and a database.
+ + Next, we install some dependencies needed for scalelite.
+ + We set up the scalelite user and group.
+ + We clone the scalelite git and checkout the release we wrote in our variables.
  + We set up some global ruby parameter like /etc/gemrc
- + rubyenv...
+ + We install some ruby gems and the part from the scalelite-Gemfile
+ + We set up some systemd files for the scalelite api and starting them
+ + We adding servers to the API (missing)
 
  Minimum Server Requirements
 -----------------------
@@ -26,9 +30,10 @@ For the Scalelite Server, the minimum recommended server requirements are:
 
  + 4 CPU Cores
  + 8 GB Memory
+
 For **each** BigBlueButton server, the minimum requirements can be found [here](http://docs.bigbluebutton.org/2.2/install.html#minimum-server-requirements).
 
-For the external Postgres Database, the minimum recommended server requirements are:
+**For the external Postgres Database, the minimum recommended server requirements are:**
 - 2 CPU Cores
 - 2 GB Memory
 - 20 GB Disk Space (should be good for tens of thousands of recordings)
@@ -45,4 +50,10 @@ For the external Postgres Database, the minimum recommended server requirements 
 ```bash
 ansible-galaxy install -r requirements.yml
 ```
+
+ Variables:
+------------
+The variables are currently not well documentated. But the can be found all in the defaults folder.
+
+Some of the variables contain ugly default secrets. For production use you have to change them!
 
