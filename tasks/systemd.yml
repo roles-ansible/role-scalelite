@@ -2,10 +2,10 @@
 - name: copy systemd file
   become: true
   template:
-    src: templates/scalelite-redis.service.j2
-    dest: /etc/systemd/system/scalelite-redis.service
+    src: templates/scalelite-api.service.j2
+    dest: /etc/systemd/system/scalelite-api.service
     owner: root
     group: root
     mode: 0644
   notify:
-    - systemctl restart scalelite-redis.service
+    - systemctl restart scalelite-api.service
