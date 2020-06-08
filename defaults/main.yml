@@ -43,8 +43,8 @@ scalelite:
   rails_env: production
   redis_server: '127.0.0.1'
   no_log: true
-
-
+  bbb_group: 'bbb'
+  configure_scalelite: false
 
 
 # simple version check for this playbook

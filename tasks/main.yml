@@ -45,3 +45,6 @@
 - include_tasks: systemd.yml
 
 - include_tasks: cluster-status.yml
+
+- include_tasks: cluster-configure.yml
+  when: scalelite.configure_scalelite | bool

@@ -44,7 +44,9 @@ _scalelite:
   rails_env: production
   redis_server: '127.0.0.1'
   no_log: true
+  bbb_group: 'bbb'
+  configure_scalelite: false
 
 # some variables for basic versioncheck
-playbook_version_number: 50 # should be integer
+playbook_version_number: 53 # should be integer
 playbook_version_path: 'role-scalelight_roles-ansible_github.com.version' # unique string

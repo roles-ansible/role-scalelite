@@ -1,0 +1,14 @@
+---
+- name: show bbb_secret
+  debug:
+    var: hostvars[item]['ansible_facts']['ansible_local']['bbb_secret']
+  with_items:
+    - "{{ groups.bbb }}"
+
+- name: show bbb_hostname
+  debug:
+    var: hostvars[item]['bbb_hostname']
+  with_items:
+    - "{{ groups[scalelite['bbb_group']] }}"
+
+
