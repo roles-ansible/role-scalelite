@@ -9,4 +9,4 @@
   changed_when: false
 
 - name: show current cluster status
-  debug: var=_current_bbb_nodes
+  debug: var=_current_bbb_nodes.stdout
