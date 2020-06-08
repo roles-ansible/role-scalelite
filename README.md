@@ -22,7 +22,24 @@ We recomend to use this role together with https://github.com/n0emis/ansible-rol
  + We set up some global ruby parameter like /etc/gemrc
  + We install some ruby gems and the part from the scalelite-Gemfile
  + We set up some systemd files for the scalelite api and starting them
- + We adding servers to the API (missing)
+ + We adding servers to the API (in progress)
+
+ OPEN ToDos:
+-------
++ Setup and configure Webserver **(important, HIGH PRIO)**
++ Manage Servers with the API *(started in tasks/cluster*.yml)
++ Improve Database and make it optional/better configurable
++ Test it
++ Test it with more clients and servers
++ documentation
++ Publish on galaxy
++ ggf. more testing options (molecule, travis-ci etc.)
+
+ DEVELOPEMENT
+---------
+We use this setup for testing:
+ + https://github.com/DO1JLR/testing_bbb.git
+
 
  Minimum Server Requirements
 -----------------------
