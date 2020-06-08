@@ -1,0 +1,12 @@
+---
+- name: Get current bbb nodes
+  become: true
+  become_user: "{{ scalelite.user }}"
+  command: bundle exec rake servers
+  args:
+    chdir: "{{ scalelite.homepath }}/scalelite-git"
+  register: _current_bbb_nodes
+  changed_when: false
+
+- name: show current cluster status
+  debug: var=_current_bbb_nodes
