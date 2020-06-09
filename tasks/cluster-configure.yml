@@ -17,6 +17,7 @@
     chdir: "{{ scalelite.homepath }}/scalelite-git"
   register: _add_bbb_server
   no_log: scalelite.no_log
+  changed_when: false
 
 - name: parse enable server id
   set_fact:
@@ -30,3 +31,4 @@
     chdir: "{{ scalelite.homepath }}/scalelite-git"
   register: _enable_bbb_server
   no_log: scalelite.no_log
+  changed_when: false
