@@ -20,6 +20,9 @@
       - name: "{{ scalelite.psql_db }}"
         owner: "{{ scalelite.psql_user }}"
         encoding: 'unicode'
+      - name: "{{ scalelite.psql_db2 }}"
+        owner: "{{ scalelite.psql_user }}"
+        encoding: 'unicode'
     postgresql_users:
       - name: "{{ scalelite.psql_user }}"
         password: "{{ scalelite.psql_pwd }}"
@@ -50,3 +53,5 @@
   when: scalelite.configure_scalelite | bool
   with_items:
     - "{{ groups.bbb }}"
+
+- include_tasks: cluster-status.yml

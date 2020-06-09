@@ -39,6 +39,7 @@ scalelite:
   psql_user: scalelite
   psql_pwd: changeMe
   psql_db: scalelite
+  psql_db2: scalelite_developement
   psql_server: localhost
   rails_env: production
   redis_server: '127.0.0.1'
