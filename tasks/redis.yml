@@ -5,7 +5,7 @@
     state: "{{ scalelite.package_state }}"
   become: true
 
-- name: 'run bin rake db:setup'
+- name: 'run bin rake db:prepare'
   shell: |
     export RAILS_ENV='{{ scalelite.rails_env }}'
     export RAILS_LOG_TO_STDOUT='1'

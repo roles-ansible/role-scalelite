@@ -48,3 +48,5 @@
 
 - include_tasks: cluster-configure.yml
   when: scalelite.configure_scalelite | bool
+  with_items:
+    - "{{ groups.bbb }}"
