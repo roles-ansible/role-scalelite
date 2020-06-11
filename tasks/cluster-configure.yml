@@ -7,9 +7,7 @@
   set_fact:
     _bbb_hostname: "{{ hostvars[item]['bbb_hostname'] | string }}"
 
-# we should check if our nodes are present in _current_bbb_nodes
-
-- name: add bbb server "{{ _bbb_hostname }}" to cluster
+- name: make sure  bbb server "{{ _bbb_hostname }}" is part of the cluster
   become: true
   become_user: "{{ scalelite.user }}"
   command: "bin/rake servers:add[https://{{ _bbb_hostname }}/bigbluebutton/api,{{ _bbb_secret }}]"
@@ -18,12 +16,14 @@
   register: _add_bbb_server
   no_log: scalelite.no_log
   changed_when: false
+  when: "_bbb_hostname not in _current_bbb_nodes.stdout"
 
 - name: parse enable server id
   set_fact:
     _confirm_bbb: "{{ _add_bbb_server.stdout_lines[1] | regex_replace( 'id:' ) | regex_replace( ' ' ) | string }}"
+  when: "_bbb_hostname not in _current_bbb_nodes.stdout"
 
-- name: enable bbb server in cluster
+- name: enable bbb server "{{ _bbb_hostname }}" in cluster
   become: true
   become_user: "{{ scalelite.user }}"
   command: "bin/rake servers:enable[{{ _confirm_bbb }}]"
@@ -32,3 +32,5 @@
   register: _enable_bbb_server
   no_log: scalelite.no_log
   changed_when: false
+  when: "_bbb_hostname not in _current_bbb_nodes.stdout"
+  # maybe we should create a option to enable/disable bbb servers here... -> TODO

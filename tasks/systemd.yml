@@ -10,7 +10,7 @@
   notify:
     - systemctl restart scalelite-api.service
 
-- name: eploy systemd file scalelite-poller.service
+- name: deploy systemd file scalelite-poller.service
   become: true
   template:
     src: templates/scalelite-poller.service.j2
