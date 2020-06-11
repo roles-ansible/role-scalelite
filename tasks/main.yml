@@ -49,9 +49,15 @@
 
 - include_tasks: cluster-status.yml
 
+- include_tasks: get_bbb_secret.yml
+  when: scalelite.configure_scalelite | bool
+  with_items:
+    - "{{ groups.bbb }}"
+
 - include_tasks: cluster-configure.yml
   when: scalelite.configure_scalelite | bool
   with_items:
     - "{{ groups.bbb }}"
 
 - include_tasks: cluster-status.yml
+  when: scalelite.configure_scalelite | bool
