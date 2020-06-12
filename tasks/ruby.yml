@@ -36,6 +36,13 @@
     exclude_groups: development:test
     chdir: "{{ scalelite.homepath }}/scalelite-git"
 
+- name: Ensure environment file for scalelite
+  become: true
+  template:
+    src: templates/env.j2
+    dest: "{{ scalelite.homepath }}/scalelite-git/.env"
+  become_user: "{{ scalelite.user }}"
+
 - name: fix permission issue because we build some ruby stuff globally
   become: true
   file:

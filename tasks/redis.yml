@@ -6,14 +6,7 @@
   become: true
 
 - name: 'run bin rake db:prepare'
-  shell: |
-    export RAILS_ENV='{{ scalelite.rails_env }}'
-    export RAILS_LOG_TO_STDOUT='1'
-    export DATABASE_URL='postgres://{{ scalelite.psql_user }}:{{ scalelite.psql_pwd }}@{{ scalelite.psql_server }}'
-    export REDIS_URL='redis://{{ scalelite.redis_server }}'
-    # export DISABLE_DATABASE_ENVIRONMENT_CHECK=1
-
-    bin/rake db:prepare
+  shell: bin/rake db:prepare
   args:
     executable: /bin/bash
     chdir: "{{ scalelite.homepath }}/scalelite-git"
