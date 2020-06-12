@@ -7,7 +7,7 @@
 
 - name: Count scalelite database tables
   shell:
-    cmd: "export PGPASSWORD='{{ scalelite.psql_pwd }}'; psql -h {{ scalelite.psql_server }} -U {{ scalelite.psql_user }} {{ scalelite.psql_db }} -qAt -c 'select count(*) from pg_stat_user_tables;'"
+    cmd: "export PGPASSWORD='{{ scalelite.psql_pwd }}'; {{ _scalelite_custom_psql_cmd }}"
   check_mode: no
   changed_when: false
   register: scalelite_database_tablecount
