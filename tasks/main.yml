@@ -33,6 +33,8 @@
 
 - include_tasks: user.yml
 
+- include_task: secret.yml
+
 - name: clone scalelite git
   become: true
   become_user: "{{ scalelite.user }}"
