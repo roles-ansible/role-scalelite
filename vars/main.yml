@@ -51,6 +51,24 @@ _scalelite:
 
 _scalelite_custom_psql_cmd: "psql -h {{ scalelite.psql_server }} -U {{ scalelite.psql_user }} {{ scalelite.psql_db }} -qAt -c 'select count(*) from pg_stat_user_tables;'"
 
+# geerlingguy.ruby vars
+ruby_version: "{{ scalelite.ruby_version }}"
+ruby_install_from_source: "{{ scalelite.ruby_install_from_source }}"
+ruby_download_url: "{{ scalelite.ruby_download_url }}"
+
+# geerlingguy.postgresql vars
+postgresql_databases:
+  - name: "{{ scalelite.psql_db }}"
+    owner: "{{ scalelite.psql_user }}"
+    encoding: 'unicode'
+  - name: "{{ scalelite.psql_db2 }}"
+    owner: "{{ scalelite.psql_user }}"
+    encoding: 'unicode'
+postgresql_users:
+  - name: "{{ scalelite.psql_user }}"
+    password: "{{ scalelite.psql_pwd }}"
+postgres_users_no_log: "{{ scalelite.no_log }}"
+
 # some variables for basic versioncheck
-playbook_version_number: 55 # should be integer
+playbook_version_number: 56 # should be integer
 playbook_version_path: 'role-scalelight_roles-ansible_github.com.version' # unique string
