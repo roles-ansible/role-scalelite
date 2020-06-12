@@ -9,9 +9,18 @@
     group: root
     mode: 0744
 
+- name: Ensure bundle in is deployment mode
+  command:
+    cmd: bundle config set deployment 'true'
+    chdir: "{{ scalelite.homepath }}/scalelite-git"
+    creates: "{{ scalelite.homepath }}/scalelite-git/.bundle/config"
+  become: yes
+  become_user: "{{ scalelite.user }}"
+
 - name: install gem version "scalelite.bundler_version"
   become: true
 #  become_user: "{{ scalelite.user }}"
+#  -> install as root because as user was not working
   gem:
     name: bundler
     version: "{{ scalelite.bundler_version }}"
@@ -35,4 +44,6 @@
     group: "{{ scalelite.user }}"
     recurse: true
 
-# we do have a permission problem here. If you are a ruby expert, please help!
+# we could have a permission problem here.
+# We did build the ruby stuff as root.
+# If you are a ruby expert or know how to do this as user, please help!
