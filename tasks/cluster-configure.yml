@@ -1,11 +1,13 @@
 ---
 - name: get bbb_secret
   set_fact:
-    _bbb_secret: "{{ hostvars[item]['ansible_facts']['ansible_local']['bbb_secret'] | string }}"
+    _bbb_secret: "{{ ansible_local[item]['bbb']['secret'] | string }}"
+
+- debug: var=_bbb_secret
 
 - name: get bbb_hostname
   set_fact:
-    _bbb_hostname: "{{ hostvars[item]['bbb_hostname'] | string }}"
+    _bbb_hostname: "{{ ansible_local[item]['bbb']['hostname'] | string }}"
 
 - name: make sure  bbb server "{{ _bbb_hostname }}" is part of the cluster
   become: true
