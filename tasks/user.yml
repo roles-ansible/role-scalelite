@@ -11,5 +11,6 @@
     name: "{{ scalelite.user }}"
     group: "{{ scalelite.user }}"
     shell: /bin/bash
+    password: '!'
     home: "{{ scalelite.homepath }}"
     state: present
