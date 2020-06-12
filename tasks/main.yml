@@ -33,7 +33,7 @@
 
 - include_tasks: user.yml
 
-- include_task: secret.yml
+- include_tasks: secrets.yml
 
 - name: clone scalelite git
   become: true
