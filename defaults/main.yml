@@ -42,7 +42,7 @@ scalelite:
   psql_db2: scalelite_developement
   psql_server: localhost
   rails_env: production
-  redis_server: '127.0.0.1'
+  redis_server: '127.0.0.1:6379'
   no_log: true
   bbb_group: 'bbb'
   configure_scalelite: false

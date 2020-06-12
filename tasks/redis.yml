@@ -5,10 +5,20 @@
     state: "{{ scalelite.package_state }}"
   become: true
 
-- name: 'run bin rake db:prepare'
-  shell: bin/rake db:prepare
-  args:
-    executable: /bin/bash
+- name: Count scalelite database tables
+  shell:
+    cmd: "export PGPASSWORD='{{ scalelite.psql_pwd'; psql -h {{ scalelite.psql_server }} -U {{ scalelite.psql_user }} {{ scalelite.db }} -qAt -c 'select count(*) from pg_stat_user_tables;'"
+  check_mode: no
+  changed_when: false
+  register: scalelite_database_tablecount
+  no_log: "{{ scalelite.no_log }}"
+
+- name: Ensure database schema is loaded
+  shell:
     chdir: "{{ scalelite.homepath }}/scalelite-git"
-  changed_when: False
+    executable: /bin/bash
+    cmd: "set -o allexport; source .env; set +o allexport; bundle exec rails db:schema:load"
+  become: yes
+  become_user: "{{ scalelite.user }}"
+  when: scalelite_database_tablecount.stdout|int <= 1
   no_log: "{{ scalelite.no_log }}"
