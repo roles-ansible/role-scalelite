@@ -12,3 +12,9 @@
     name: scalelite-poller.service
     state: restarted
     daemon_reload: true
+
+- name: systemctl restart nginx.service
+  become: true
+  systemd:
+    name: nginx.service
+    state: restarted

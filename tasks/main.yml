@@ -46,3 +46,9 @@
 
 - include_tasks: cluster-status.yml
   when: scalelite.configure_scalelite | bool
+
+- include_tasks: nginx-letsencrypt.yml
+  when: scalelite.use_letsencrypt | bool
+
+- include_tasks: nginx.yml
+  when: scalelite.configure_nginx | bool

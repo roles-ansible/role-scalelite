@@ -2,6 +2,7 @@
 # default scalelite config
 _scalelite:
   user: scalelite
+  hostname: "{{ ansible_fqdn }}"
   required_packages:
     - git
     - curl
@@ -48,6 +49,8 @@ _scalelite:
   bbb_group: 'bbb'
   configure_scalelite: false
   install_nginx: true
+  configure_nginx: true
+  use_letsencrypt: true
 
 _scalelite_custom_psql_cmd: "psql -h {{ scalelite.psql_server }} -U {{ scalelite.psql_user }} {{ scalelite.psql_db }} -qAt -c 'select count(*) from pg_stat_user_tables;'"
 

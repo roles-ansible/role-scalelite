@@ -4,3 +4,11 @@
     name: "{{ scalelite.required_packages }}"
     state: "{{ scalelite.package_state }}"
   become: true
+
+- name: Ensure nginx is present
+  become: true
+  package:
+    name:
+      - nginx
+    state: "{{ scalelite.package_state }}"
+  when: scalelite.configure_nginx | bool

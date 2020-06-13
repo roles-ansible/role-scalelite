@@ -1,6 +1,7 @@
 ---
 scalelite:
   user: scalelite
+  hostname: "{{ ansible_fqdn }}"
   required_packages:
     - git
     - curl
@@ -48,6 +49,9 @@ scalelite:
   configure_scalelite: false
   # secret_key_base: # will be auto generated if not defined
   # loadbalancer_secret: # will be autigenerated if not defined
+  configure_nginx: true
+  # letsencrypt_email: # optionally set letsencrypt mail (recomended)
+  use_letsencrypt: true
 
 
 # simple version check for this playbook
