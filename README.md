@@ -74,3 +74,8 @@ The variables are currently not well documentated. But the can be found all in t
 
 Some of the variables contain ugly default secrets. For production use you have to change them!
 
+ Contribution
+--------------
+This role is developed on github. Try to open issues and pull requests there if possible. On [github.com/roles-ansible/role-scalelite](https://github.com/roles-ansible/role-scalelite.git).
+
+If you have questions, problems or suggestions, you are welcome to open an issue or pull request.
