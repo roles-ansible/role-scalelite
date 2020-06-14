@@ -53,8 +53,6 @@ _scalelite:
   use_letsencrypt: true
   nginx_dh: true
   nginx_privacy: true
-  ssl_cert: "/etc/nginx/ssl/live/{{ scalelite.hostname }}/fullchain.pem"
-  ssl_key: "/etc/nginx/ssl/live/{{ scalelite.hostname }}/privkey.pem"
 
 
 _scalelite_custom_psql_cmd: "psql -h {{ scalelite.psql_server }} -U {{ scalelite.psql_user }} {{ scalelite.psql_db }} -qAt -c 'select count(*) from pg_stat_user_tables;'"

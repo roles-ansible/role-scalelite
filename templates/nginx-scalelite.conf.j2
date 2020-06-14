@@ -1,3 +1,5 @@
+# {{ ansible_managed }}
+
 server {
     listen 80;
     listen [::]:80;
@@ -9,8 +11,16 @@ server {
   listen 443 ssl http2 default_server;
   listen [::]:443 ssl http2 default_server;
   server_name {{ scalelite.hostname }};
+  {% if scalelite.ssl_cert is defined %}
     ssl_certificate {{ scalelite.ssl_cert }};
+  {% else %}
+    ssl_certificate /etc/letsencrypt/live/{{ scalelite.hostname }}/fullchain.pem;
+  {% endif -%}
+  {% if scalelite.ssl_key is defined %}
     ssl_certificate_key {{ scalelite.ssl_key }};
+  {% else %}
+    ssl_certificate_key /etc/letsencrypt/live/{{ scalelite.hostname }}/privkey.pem;
+  {% endif %}
     ssl_session_cache shared:SSL:10m;
     ssl_session_timeout 10m;
     ssl_protocols TLSv1.2;

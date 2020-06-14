@@ -54,8 +54,8 @@ scalelite:
   use_letsencrypt: true
   nginx_dh: true
   nginx_privacy: true
-  ssl_cert: "/etc/nginx/ssl/live/{{ scalelite.hostname }}/fullchain.pem"
-  ssl_key: "/etc/nginx/ssl/live/{{ scalelite.hostname }}/privkey.pem"
+#  ssl_cert: "/etc/nginx/ssl/live/{{ scalelite.hostname }}/fullchain.pem"
+#  ssl_key: "/etc/nginx/ssl/live/{{ scalelite.hostname }}/privkey.pem"
 
 
 # simple version check for this playbook

@@ -1,13 +1,4 @@
 ---
-- name: Generate DH Parameters with a different size (4096 bits)
-  become: true
-  openssl_dhparam:
-    path: /etc/nginx/ssl/dhp-4096.pem
-    size: 4096
-  notify: systemctl restart nginx.service
-  when: scalelite.nginx_dh | bool
-
-# create some required folders
 - name: create needed folders
   become: true
   file:
@@ -16,9 +7,17 @@
     group: root
     owner: root
   with_items:
+    - /etc/nginx/ssl
     - /var/bigbluebutton
     - /var/bigbluebutton/published
 
+- name: Generate DH Parameters with a different size (4096 bits)
+  become: true
+  openssl_dhparam:
+    path: /etc/nginx/ssl/dhp-4096.pem
+    size: 4096
+  notify: systemctl restart nginx.service
+  when: scalelite.nginx_dh | bool
 
 - name: copy scalelite nginx conf
   become: true
