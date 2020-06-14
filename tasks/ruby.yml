@@ -9,14 +9,6 @@
     group: root
     mode: 0744
 
-- name: Ensure bundle in is deployment mode
-  command:
-    cmd: bundle config set deployment 'true'
-    chdir: "{{ scalelite.homepath }}/scalelite-git"
-    creates: "{{ scalelite.homepath }}/scalelite-git/.bundle/config"
-  become: yes
-  become_user: "{{ scalelite.user }}"
-
 - name: install gem version "scalelite.bundler_version"
   become: true
 #  become_user: "{{ scalelite.user }}"
@@ -27,6 +19,14 @@
 #    user_install: true
     user_install: false
     state: present
+
+- name: Ensure bundle in is deployment mode
+  command:
+    cmd: bundle config set deployment 'true'
+    chdir: "{{ scalelite.homepath }}/scalelite-git"
+    creates: "{{ scalelite.homepath }}/scalelite-git/.bundle/config"
+  become: yes
+  become_user: "{{ scalelite.user }}"
 
 - name: install requirements from scalelite Gemfile
   become: true
