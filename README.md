@@ -19,15 +19,18 @@ We recomend to use this role together with https://github.com/n0emis/ansible-rol
  + Next, we install some dependencies needed for scalelite.
  + We set up the scalelite user and group.
  + We clone the scalelite git and checkout the release we wrote in our variables.
+ + We gathered bbb secrets in local_facts
  + We set up some global ruby parameter like /etc/gemrc
  + We install some ruby gems and the part from the scalelite-Gemfile
  + We set up some systemd files for the scalelite api and starting them
- + We adding servers to the API (in progress)
+ + We adding servers to the API
+ + We installed a nginx with LetsEncrypt
+ + connect with greenlight frontend (in progress)
 
  OPEN ToDos:
 -------
-+ Setup and configure Webserver **(important, HIGH PRIO)**
-+ Manage Servers with the API *(started in tasks/cluster*.yml)
++ Add Greenlight frontend
++ Improve Server Management with the API *(started in tasks/cluster*.yml)
 + Improve Database and make it optional/better configurable
 + Test it
 + Test it with more clients and servers
@@ -43,7 +46,7 @@ We use this setup for testing:
 
  Minimum Server Requirements
 -----------------------
-For the Scalelite Server, the minimum recommended server requirements are:
+For the Scalelite Server, the minimum recommended server requirements are: *(based on the *[official Repo](https://github.com/blindsidenetworks/scalelite.git).
 
  + 4 CPU Cores
  + 8 GB Memory
