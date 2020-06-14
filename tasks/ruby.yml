@@ -51,6 +51,14 @@
     group: "{{ scalelite.user }}"
     recurse: true
 
+- name: Ensure environment file for scalelite
+  become: true
+  template:
+    src: templates/env.j2
+    dest: etc/defaults/scalelite
+    owner: root
+    group: root
+
 # we could have a permission problem here.
 # We did build the ruby stuff as root.
 # If you are a ruby expert or know how to do this as user, please help!
