@@ -1,4 +1,19 @@
 ---
+- name: mkdir /etc/defaults/
+  become: true
+  file:
+    path: /etc/defaults
+    state: directory
+
+- name: Ensure environment file for scalelite
+  become: true
+  template:
+    src: templates/env.j2
+    dest: /etc/defaults/scalelite
+    owner: root
+    group: root
+
+
 - name: create /etc/gemrc
 # not sure if this is needed
   become: true
@@ -28,6 +43,13 @@
   become: yes
   become_user: "{{ scalelite.user }}"
 
+- name: Ensure environment file for scalelite
+  become: true
+  template:
+    src: templates/env.j2
+    dest: "{{ scalelite.homepath }}/scalelite-git/.env"
+  become_user: "{{ scalelite.user }}"
+
 - name: install requirements from scalelite Gemfile
   become: true
 #  become_user: "{{ scalelite.user }}"
@@ -36,13 +58,6 @@
     exclude_groups: development:test
     chdir: "{{ scalelite.homepath }}/scalelite-git"
 
-- name: Ensure environment file for scalelite
-  become: true
-  template:
-    src: templates/env.j2
-    dest: "{{ scalelite.homepath }}/scalelite-git/.env"
-  become_user: "{{ scalelite.user }}"
-
 - name: fix permission issue because we build some ruby stuff globally
   become: true
   file:
@@ -50,14 +65,6 @@
     owner: "{{ scalelite.user }}"
     group: "{{ scalelite.user }}"
     recurse: true
-
-- name: Ensure environment file for scalelite
-  become: true
-  template:
-    src: templates/env.j2
-    dest: etc/defaults/scalelite
-    owner: root
-    group: root
 
 # we could have a permission problem here.
 # We did build the ruby stuff as root.
