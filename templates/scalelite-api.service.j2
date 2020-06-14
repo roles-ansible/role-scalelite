@@ -9,7 +9,7 @@ User={{ scalelite.user }}
 Group={{ scalelite.user }}
 WorkingDirectory={{ scalelite.homepath }}/scalelite-git
 ExecStart={{ scalelite.homepath }}/scalelite-git/bin/start
-Environment=TINI_SUBREAPER="1"
+EnvironmentFile={{ scalelite.homepath }}/scalelite-git/.env
 Restart=always
 
 [Install]
