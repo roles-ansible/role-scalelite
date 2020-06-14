@@ -61,3 +61,10 @@
 
 - include_tasks: cluster-status.yml
   when: scalelite.configure_scalelite | bool
+
+- include_roles:
+  name: infrarun.greenlight 
+
+- include_tasks: nginx.yml    
+
+  name: infrarun.nginx

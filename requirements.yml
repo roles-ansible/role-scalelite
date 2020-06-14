@@ -1,4 +1,8 @@
 ---
 roles:
-  - name: geerlingguy.ruby
-  - name: geerlingguy.postgresql
+  - src: geerlingguy.ruby
+  - src: geerlingguy.postgresql
+  - src: git+https://gitlab.com/infra.run/public/ansible-nginx.git
+    name: infrarun.nginx
+  - src: git+https://gitlab.com/0boro/greenlight.git
+    name: infrarun.greenlight

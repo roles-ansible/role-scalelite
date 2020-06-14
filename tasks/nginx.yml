@@ -1,0 +1,41 @@
+---
+
+- name: Ensure nginx is installed
+  package:
+    name: nginx
+
+- name: Add certbot apt repo
+  apt_repository:
+    repo: ppa:certbot/certbot
+    state: present
+
+- name: Install certbot
+  apt:
+    pkg:
+      - certbot
+      - python3-certbot-nginx
+
+- name: Change Let's Encrypt API to v2
+  lineinfile:
+    path: /etc/letsencrypt/cli.ini
+    line: 'server = https://acme-v02.api.letsencrypt.org/directory'
+
+- name: Register certbot certificate file
+  stat:
+    path: "/etc/letsencrypt/live/{{ bbb_hostname }}/fullchain.pem"
+  register: certbot_certificate_file_path
+
+- name: Generate Certificates with letsencrypt expire notifications
+  command: certbot certonly -d {{ bbb_hostname }} --email {{ bbb_letsencrypt_email }} --agree-tos -n --nginx
+  notify: reload nginx
+  when: not certbot_certificate_file_path.stat.exists and bbb_letsencrypt_email is defined
+
+- name: Generate Certificates without letsencrypt expire notifications
+  command: certbot certonly -d {{ bbb_hostname }} --register-unsafely-without-email --agree-tos -n --nginx
+  notify: reload nginx
+  when: not certbot_certificate_file_path.stat.exists and bbb_letsencrypt_email is not defined
+
+- name: Ensure scalelite vhost nginx config is deployed
+  template:
+    src: scalelite_vhost.j2
+    dest: /etc/nginx/site-enable/scalelite_{{ scalelite_hostname }}.conf
