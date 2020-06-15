@@ -8,7 +8,9 @@ Ansible role to deploy scalelite without docker
 **IN DEVELOPMENT - NOT FOR PRODUCTION USE!**
 
 The scalelite repository can be found there:
+
 https://github.com/blindsidenetworks/scalelite.git
+<!-- https://github.com/blindsidenetworks/scalelite/blob/master/Dockerfile#L58-L62 -->
 
 We recomend to use this role together with https://github.com/n0emis/ansible-role-bigbluebutton.git
 
