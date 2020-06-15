@@ -13,7 +13,6 @@
     owner: root
     group: root
 
-
 - name: create /etc/gemrc
 # not sure if this is needed
   become: true
