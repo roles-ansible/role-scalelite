@@ -49,6 +49,16 @@
     dest: "{{ scalelite.homepath }}/scalelite-git/.env"
   become_user: "{{ scalelite.user }}"
 
+# bundle config build.nokogiri --use-system-libraries
+- name: bundle config build nokogiri
+  changed_when: false
+  shell:
+    chdir: "{{ scalelite.homepath }}/scalelite-git"
+    executable: /bin/bash
+    cmd: "set -o allexport; source .env; set +o allexport; bundle config build.nokogiri --use-system-libraries"
+  become: yes
+  become_user: "{{ scalelite.user }}"
+
 - name: install requirements from scalelite Gemfile
   become: true
 #  become_user: "{{ scalelite.user }}"
@@ -56,6 +66,7 @@
     state: present
     exclude_groups: development:test
     chdir: "{{ scalelite.homepath }}/scalelite-git"
+    deployment_mode: true
 
 - name: fix permission issue because we build some ruby stuff globally
   become: true
