@@ -53,6 +53,10 @@
 - include_tasks: nginx.yml
   when: scalelite.configure_nginx | bool
 
-- import_role: 
+- set_fact:
+    lb_secret: "{{ scalelite_loadbalancer_secret }}"
+    lb_url: "https://{{ scalelite.hostname }}/bigbluebutton"
+
+- import_role:
     name: greenlight
   when: scalelite.greenlight_enable | bool
