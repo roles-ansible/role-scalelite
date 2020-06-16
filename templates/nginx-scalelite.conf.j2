@@ -38,7 +38,7 @@ server {
 {% endif %}
 
 {% if scalelite.greenlight_enable %}
-  include {{ greenlight__nginx_confdir }}/*
+  include {{ greenlight__nginx_confdir }}/*;
 {% endif %}
 
 
