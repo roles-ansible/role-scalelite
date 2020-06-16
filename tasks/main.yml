@@ -53,6 +53,6 @@
 - include_tasks: nginx.yml
   when: scalelite.configure_nginx | bool
 
-- include_role: 
+- import_role: 
     name: greenlight
   when: scalelite.greenlight_enable | bool
