@@ -1,4 +1,6 @@
 ---
 roles:
-  - name: geerlingguy.ruby
-  - name: geerlingguy.postgresql
+  - src: geerlingguy.ruby
+  - src: geerlingguy.postgresql
+  - src: git+https://gitlab.com/0boro/greenlight.git
+    name: greenlight

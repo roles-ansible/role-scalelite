@@ -97,6 +97,9 @@ location / {
     index  index.html index.htm;
   }
 
+{% if scalelite.greenlight_enable %}
+  include {{ greenlight__nginx_confdir }}/*
+{% endif %}
 
   #error_page  404  /404.html;
 
