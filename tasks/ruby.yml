@@ -47,7 +47,8 @@
   template:
     src: templates/env.j2
     dest: "{{ item }}"
-  become_user: "{{ scalelite.user }}"
+    owner: "{{ scalelite.user }}"
+    group: "{{ scalelite.user }}"
   with_items:
     - "{{ scalelite.path }}/.env"
     - "{{ scalelite.homepath }}/.env"
@@ -58,7 +59,7 @@
   shell:
     chdir: "{{ scalelite.path }}"
     executable: /bin/bash
-    cmd: "set -o allexport; source .env; set +o allexport; bundle config build.nokogiri --use-system-libraries"
+    cmd: "set -o allexport; source .env; set +o allexport; RAILS_ENV=production bundle config build.nokogiri --use-system-libraries"
   become: yes
   become_user: "{{ scalelite.user }}"
 
@@ -69,6 +70,8 @@
     state: present
     exclude_groups: development:test
     chdir: "{{ scalelite.path }}"
+    extra_args:
+      RAILS_ENV: production
 
 - name: fix permission issue because we build some ruby stuff globally
   become: true

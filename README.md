@@ -14,6 +14,14 @@ https://github.com/blindsidenetworks/scalelite.git
 
 We recomend to use this role together with https://github.com/n0emis/ansible-role-bigbluebutton.git
 
+ Debugging stuff
+-----------
+```
+If you are not in production mode you will have a lot of trouble.
+
+./bin/rake about
+```
+
  What is this role doing?
 --------------------
  + First we do a simple version check, if this is enabled in the config. (disabled by default)
