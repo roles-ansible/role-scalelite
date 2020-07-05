@@ -18,6 +18,13 @@
 
 - include_tasks: secrets.yml
 
+- name: 'ensure {{ scalelite.path }} exists'
+  become: true
+  file:
+    path: "{{ scalelite.path }}"
+    state: directory
+    mode: '0755'
+
 - name: clone scalelite git
   become: true
   become_user: "{{ scalelite.user }}"
