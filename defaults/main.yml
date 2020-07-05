@@ -29,7 +29,7 @@ scalelite:
     - pkgconf
   package_state: present
   git_repo: https://github.com/blindsidenetworks/scalelite.git
-  git_branch: v1.0.3
+  git_branch: v1.0.4
   homepath: /home/scalelite
   path: /var/scalelite
   ruby_version: 2.6.5

@@ -30,7 +30,7 @@ _scalelite:
     - pkgconf
   package_state: present
   git_repo: https://github.com/blindsidenetworks/scalelite.git
-  git_branch: v1.0.3
+  git_branch: v1.0.4
   homepath: /home/scalelite
   path: /var/scalelite
   ruby_version: 2.6.5
@@ -73,5 +73,5 @@ postgresql_users:
 postgres_users_no_log: "{{ scalelite.no_log }}"
 
 # some variables for basic versioncheck
-playbook_version_number: 58 # should be integer
+playbook_version_number: 59 # should be integer
 playbook_version_path: 'role-scalelight_roles-ansible_github.com.version' # unique string
