@@ -5,13 +5,6 @@
     path: /etc/defaults
     state: directory
 
-- name: Ensure environment file for scalelite
-  become: true
-  template:
-    src: templates/env.j2
-    dest: /etc/defaults/scalelite
-    owner: root
-    group: root
 
 - name: create /etc/gemrc
 # not sure if this is needed
@@ -30,7 +23,6 @@
   gem:
     name: bundler
     version: "{{ scalelite.bundler_version }}"
-#    user_install: true
     user_install: false
     state: present
 
@@ -48,10 +40,10 @@
     src: templates/env.j2
     dest: "{{ item }}"
     owner: "{{ scalelite.user }}"
-    group: "{{ scalelite.user }}"
   with_items:
     - "{{ scalelite.path }}/.env"
     - "{{ scalelite.homepath }}/.env"
+    - /etc/defaults/scalelite
 
 # bundle config build.nokogiri --use-system-libraries
 - name: bundle config build nokogiri
@@ -59,13 +51,12 @@
   shell:
     chdir: "{{ scalelite.path }}"
     executable: /bin/bash
-    cmd: "set -o allexport; source .env; set +o allexport; RAILS_ENV=production bundle config build.nokogiri --use-system-libraries"
+    cmd: "source .env; RAILS_ENV={{ scalelite.rails_env }} bundle config cap production build.nokogiri --use-system-libraries"
   become: yes
   become_user: "{{ scalelite.user }}"
 
 - name: install requirements from scalelite Gemfile
   become: true
-#  become_user: "{{ scalelite.user }}"
   bundler:
     state: present
     exclude_groups: development:test

@@ -73,5 +73,5 @@ postgresql_users:
 postgres_users_no_log: "{{ scalelite.no_log }}"
 
 # some variables for basic versioncheck
-playbook_version_number: 60 # should be integer
+playbook_version_number: 65 # should be integer
 playbook_version_path: 'role-scalelight_roles-ansible_github.com.version' # unique string
