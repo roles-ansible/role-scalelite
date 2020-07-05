@@ -24,6 +24,8 @@
     path: "{{ scalelite.path }}"
     state: directory
     mode: '0755'
+    owner: "{{ scalelite.user }}"
+    group: "{{ scalelite.user }}"
 
 - name: clone scalelite git
   become: true
