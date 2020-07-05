@@ -14,7 +14,7 @@
   become_user: "{{ scalelite.user }}"
   command: "bin/rake servers:add[https://{{ _bbb_hostname }}/bigbluebutton/api,{{ _bbb_secret }}]"
   args:
-    chdir: "{{ scalelite.homepath }}/scalelite-git"
+    chdir: "{{ scalelite.path }}"
   register: _add_bbb_server
   no_log: scalelite.no_log
   changed_when: false
@@ -30,7 +30,7 @@
   become_user: "{{ scalelite.user }}"
   command: "bin/rake servers:enable[{{ _confirm_bbb }}]"
   args:
-    chdir: "{{ scalelite.homepath }}/scalelite-git"
+    chdir: "{{ scalelite.path }}"
   register: _enable_bbb_server
   no_log: scalelite.no_log
   changed_when: false
@@ -42,5 +42,5 @@
   become_user: "{{ scalelite.user }}"
   command: "bundle exec bin/rake poll:all"
   args:
-    chdir: "{{ scalelite.homepath }}/scalelite-git"
+    chdir: "{{ scalelite.path }}"
   when: "_bbb_hostname not in _current_bbb_nodes.stdout"

@@ -15,7 +15,7 @@
 
 - name: Ensure database schema is loaded
   shell:
-    chdir: "{{ scalelite.homepath }}/scalelite-git"
+    chdir: "{{ scalelite.path }}"
     executable: /bin/bash
     cmd: "set -o allexport; source .env; set +o allexport; bundle exec rails db:schema:load"
   become: yes

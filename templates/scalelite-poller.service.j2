@@ -1,5 +1,6 @@
 [Unit]
 Description=scalelite bin/start-poller
+Documentation=https://github.com/roles-ansible/role-scalelite.git
 After=network.target
 
 [Service]
@@ -7,9 +8,9 @@ RestartSec=2s
 Type=simple
 User={{ scalelite.user }}
 Group={{ scalelite.user }}
-WorkingDirectory={{ scalelite.homepath }}/scalelite-git
-ExecStart={{ scalelite.homepath }}/scalelite-git/bin/start-poller
-EnvironmentFile={{ scalelite.homepath }}/scalelite-git/.env
+WorkingDirectory={{ scalelite.path }}
+ExecStart={{ scalelite.path }}/bin/start-poller
+EnvironmentFile={{ scalelite.path }}/.env
 Restart=always
 
 [Install]

@@ -31,6 +31,7 @@ scalelite:
   git_repo: https://github.com/blindsidenetworks/scalelite.git
   git_branch: v1.0.3
   homepath: /home/scalelite
+  path: /var/scalelite
   ruby_version: 2.6.5
   bundler_version: 2.1.4
   ruby_download_url: http://cache.ruby-lang.org/pub/ruby/2.6/ruby-2.6.5.tar.gz
@@ -40,7 +41,6 @@ scalelite:
   psql_user: scalelite
   psql_pwd: changeMe
   psql_db: scalelite
-  psql_db2: scalelite_developement
   psql_server: localhost
   rails_env: production
   redis_server: '127.0.0.1:6379'

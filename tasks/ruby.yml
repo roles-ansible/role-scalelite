@@ -37,8 +37,8 @@
 - name: Ensure bundle in is deployment mode
   command:
     cmd: bundle config set deployment 'true'
-    chdir: "{{ scalelite.homepath }}/scalelite-git"
-    creates: "{{ scalelite.homepath }}/scalelite-git/.bundle/config"
+    chdir: "{{ scalelite.path }}/scalelite-git"
+    creates: "{{ scalelite.path }}/.bundle/config"
   become: yes
   become_user: "{{ scalelite.user }}"
 
@@ -46,14 +46,17 @@
   become: true
   template:
     src: templates/env.j2
-    dest: "{{ scalelite.homepath }}/scalelite-git/.env"
+    dest: "{{ item }}"
   become_user: "{{ scalelite.user }}"
+  with_items:
+    - "{{ scalelite.path }}/.env"
+    - "{{ scalelite.homepath }}/.env"
 
 # bundle config build.nokogiri --use-system-libraries
 - name: bundle config build nokogiri
   changed_when: false
   shell:
-    chdir: "{{ scalelite.homepath }}/scalelite-git"
+    chdir: "{{ scalelite.path }}"
     executable: /bin/bash
     cmd: "set -o allexport; source .env; set +o allexport; bundle config build.nokogiri --use-system-libraries"
   become: yes
@@ -65,12 +68,12 @@
   bundler:
     state: present
     exclude_groups: development:test
-    chdir: "{{ scalelite.homepath }}/scalelite-git"
+    chdir: "{{ scalelite.path }}"
 
 - name: fix permission issue because we build some ruby stuff globally
   become: true
   file:
-    path: "{{ scalelite.homepath }}/scalelite-git"
+    path: "{{ scalelite.path }}"
     owner: "{{ scalelite.user }}"
     group: "{{ scalelite.user }}"
     recurse: true

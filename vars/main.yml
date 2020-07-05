@@ -32,6 +32,7 @@ _scalelite:
   git_repo: https://github.com/blindsidenetworks/scalelite.git
   git_branch: v1.0.3
   homepath: /home/scalelite
+  path: /var/scalelite
   ruby_version: 2.6.5
   bundler_version: 2.1.4
   ruby_download_url: http://cache.ruby-lang.org/pub/ruby/2.6/ruby-2.6.5.tar.gz
@@ -41,7 +42,6 @@ _scalelite:
   psql_user: scalelite
   psql_pwd: changeMe
   psql_db: scalelite
-  psql_db2: scalelite_developement
   psql_server: localhost
   rails_env: production
   redis_server: '127.0.0.1:6379'
@@ -67,14 +67,11 @@ postgresql_databases:
   - name: "{{ scalelite.psql_db }}"
     owner: "{{ scalelite.psql_user }}"
     encoding: 'unicode'
-  - name: "{{ scalelite.psql_db2 }}"
-    owner: "{{ scalelite.psql_user }}"
-    encoding: 'unicode'
 postgresql_users:
   - name: "{{ scalelite.psql_user }}"
     password: "{{ scalelite.psql_pwd }}"
 postgres_users_no_log: "{{ scalelite.no_log }}"
 
 # some variables for basic versioncheck
-playbook_version_number: 57 # should be integer
+playbook_version_number: 58 # should be integer
 playbook_version_path: 'role-scalelight_roles-ansible_github.com.version' # unique string

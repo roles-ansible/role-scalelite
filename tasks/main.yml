@@ -24,7 +24,7 @@
   git:
     repo: "{{ scalelite.git_repo }}"
     version: "{{ scalelite.git_branch }}"
-    dest: "{{ scalelite.homepath }}/scalelite-git"
+    dest: "{{ scalelite.path }}"
 
 - include_tasks: ruby.yml
 
