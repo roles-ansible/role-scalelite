@@ -37,7 +37,7 @@
 - name: Ensure bundle in is deployment mode
   command:
     cmd: bundle config set deployment 'true'
-    chdir: "{{ scalelite.path }}/scalelite-git"
+    chdir: "{{ scalelite.path }}"
     creates: "{{ scalelite.path }}/.bundle/config"
   become: yes
   become_user: "{{ scalelite.user }}"

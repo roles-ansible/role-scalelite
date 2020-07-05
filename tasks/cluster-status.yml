@@ -4,7 +4,7 @@
   become_user: "{{ scalelite.user }}"
   command: bundle exec rake servers
   args:
-    chdir: "{{ scalelite.homepath }}/scalelite-git"
+    chdir: "{{ scalelite.ath }}"
   register: _current_bbb_nodes
   changed_when: false
 
