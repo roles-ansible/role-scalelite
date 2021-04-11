@@ -5,7 +5,7 @@
 # role-scalelite
 Ansible role to deploy scalelite without docker
 
-**IN DEVELOPMENT - NOT FOR PRODUCTION USE!**
+**NO LONGER IN DEVELOPMENT - NOT FOR PRODUCTION USE!**
 
 The scalelite repository can be found there:
 
